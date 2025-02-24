@@ -1,8 +1,3 @@
-#git show --no-patch --format=%cd --date=short --date=format:%y.%m $(git rev-parse HEAD)
-#echo $(git show --no-patch --format=%cd --date=short --date=format:%y.%m $(git rev-parse HEAD)).$(git rev-list --count --after="$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-01 $(git rev-parse HEAD))" --before="$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-30 $(git rev-parse HEAD))" HEAD)
-#PROGRAM_VERSION := $(shell echo $$(date +%y.%m).$$(git rev-list --count --since="$$(date +'%Y-%m-01')" HEAD))
-#PROGRAM_VERSION := $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%y.%m $$(git rev-parse HEAD)).$$(git rev-list --count --after="$$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-01 $$(git rev-parse HEAD))" --before="$$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-30 $$(git rev-parse HEAD))" HEAD) )
-
 YEAR_MONTH = $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%y.%m $$(git rev-parse HEAD)) )
 DATE_COMMITS_BEFORE = $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-30 $$(git rev-parse HEAD)) )
 DATE_COMMITS_AFTER = $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-01 $$(git rev-parse HEAD)) )
