@@ -1,4 +1,5 @@
 .env
 *.o
 card_vpn
+cardvpn_client
 openconnect-master/
