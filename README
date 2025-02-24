@@ -1,10 +1,10 @@
 This repository contains a simple C program for a VPN client called `cardvpn_client`. 
 The program is designed to work with OpenConnect.
 
-$ Requirements
+Requirements:
 - OpenConnect must be installed on your system.
 
-$ Compilation
+Compilation:
 To compile the code, navigate to the repository directory 
 and run the following command:
 
@@ -12,7 +12,7 @@ and run the following command:
 
 This will generate an executable file named `cardvpn_client`.
 
-$ Usage
+Usage:
 After compiling, you can run the program using:
 
     $ ./cardvpn_client
