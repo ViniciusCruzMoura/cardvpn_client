@@ -2,9 +2,10 @@ YEAR_MONTH = $(shell echo $$(git show --no-patch --format=%cd --date=short --dat
 DATE_COMMITS_BEFORE = $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-30 $$(git rev-parse HEAD)) )
 DATE_COMMITS_AFTER = $(shell echo $$(git show --no-patch --format=%cd --date=short --date=format:%Y-%m-01 $$(git rev-parse HEAD)) )
 COMMITS = $(shell echo $$(git rev-list --count --after="$(DATE_COMMITS_AFTER)" --before="$(DATE_COMMITS_BEFORE)" HEAD) )
+GIT_HASH = $(shell echo $$(git rev-parse HEAD) )
 
 # Define current git clone version
-PROGRAM_VERSION := $(YEAR_MONTH).$(COMMITS)
+PROGRAM_VERSION := v$(YEAR_MONTH).$(COMMITS)-$(GIT_HASH)
 
 # Define required environment variables
 VPN_SP3_PROXY  ?= $(SP3_PROXY)
