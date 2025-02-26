@@ -11,25 +11,27 @@ int main( int argc, char *argv[] )
 
     if ( argc < 1 ) {
         fprintf(stderr, "Usage: '%s <option> help' to get help on each command\n", program_name);
-        return 1;
+        return EXIT_FAILURE;
     }
 
     const char *command_name = shift(argv, argc);
 
     if ( strcmp(command_name, "version") == 0 ) {
         printf( "%s Version %s\n", program_name , PROGRAM_VERSION );
-        return 0;
+        printf( "%s VPN_CG_PROXY %s\n", program_name , VPN_CG_PROXY );
+        printf( "%s VPN_SP3_PROXY %s\n", program_name , VPN_SP3_PROXY );
+        return EXIT_SUCCESS;
     } else if ( strcmp( command_name, "cg" ) == 0 ) {
         system( "openconnect " VPN_CG_PROXY );
-        return 0;
+        return EXIT_SUCCESS;
     } else if ( strcmp( command_name, "sp3" ) == 0 ) {
         system( "openconnect --protocol=fortinet " VPN_SP3_PROXY );
-        return 0;
+        return EXIT_SUCCESS;
     } else {
         fprintf( stderr, "ERROR: unknown command %s\n", command_name );
-        return 1;
+        return EXIT_FAILURE;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 //     int have_openconnect = 0;
 //     if ( system( "ls -la openconnect-master/ > /dev/null 2>&1" ) == 0 )
